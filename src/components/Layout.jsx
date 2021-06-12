@@ -1,4 +1,5 @@
 import Nav from "components/nav";
+import Chatbot from "components/Chatbot";
 
 const Layout = ({ children }) => {
   return (
@@ -6,9 +7,12 @@ const Layout = ({ children }) => {
       <header>
         <Nav />
       </header>
-      <body>
+      <div className="w-full">
         {children}
-      </body>
+        <div className="flex justify-end">
+          <Chatbot />
+        </div>
+      </div>
     </>
   )
 }

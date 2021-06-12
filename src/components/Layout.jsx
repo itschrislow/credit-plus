@@ -1,17 +1,15 @@
 import Nav from "components/nav";
 import Chatbot from "components/Chatbot";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, showChatbot, setShowChatbot }) => {
   return (
-    <>
-      <header>
-        <Nav />
-      </header>
-      <div className="w-full">
+    <div className="h-screen overflow-hidden">
+      <Nav />
+      <main>
         {children}
-        <Chatbot />
-      </div>
-    </>
+      </main>
+      <Chatbot showChatbot={showChatbot} setShowChatbot={setShowChatbot} />
+    </div>
   )
 }
 

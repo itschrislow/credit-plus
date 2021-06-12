@@ -1,12 +1,15 @@
-import '../styles/globals.css'
-import 'tailwindcss/tailwind.css'
+import { useState } from "react";
 
 import Layout from 'components/Layout'
 
+import '../styles/globals.css'
+
 function MyApp({ Component, pageProps }) {
+  const [showChatbot, setShowChatbot] = useState(false);
+
   return (
-    <Layout>
-      <Component {...pageProps} />
+    <Layout showChatbot={showChatbot} setShowChatbot={setShowChatbot}>
+      <Component {...pageProps} showChatbot={showChatbot} setShowChatbot={setShowChatbot} />
     </Layout>
   )
 }

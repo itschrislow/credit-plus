@@ -2,7 +2,7 @@ import Link from "next/Link";
 
 const Nav = () => {
   return (
-    <nav className="h-20 w-full px-10 flex items-center bg-[#70CDE3]">
+    <nav className="z-10 h-20 w-full px-10 flex items-center">
       <img src="/static/images/rhb-logo.png" />
       <div className="w-full flex justify-evenly font-light">
         <Link href="/">

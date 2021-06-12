@@ -8,16 +8,15 @@ import {
   BizPowerReliefFinancing,
 } from "src/products";
 
-const Chatbot = () => {
-  const [state, setState] = useState(false);
-  const toggle = ({ opened }) => setState({ opened });
+const Chatbot = ({ showChatbot, setShowChatbot }) => {
+  const toggle = ({ opened }) => setShowChatbot({ opened });
 
   return (
     <ReactChatBot
       botDelay={500}
       userDelay={500}
       floating={true}
-      opened={state}
+      opened={showChatbot}
       toggleFloating={toggle}
       headerTitle="Rob"
       style={{ fontFamily: "sans-serif" }}
@@ -42,7 +41,7 @@ const Chatbot = () => {
           <h2 className="sc-crzoAE kYtdwL rsc-header-title">
             Rob
           </h2>
-          <a onClick={() => setState(false)} style={{ cursor: "pointer" }}>
+          <a onClick={() => setShowChatbot(false)} style={{ cursor: "pointer" }}>
             <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg>
           </a>
         </div>

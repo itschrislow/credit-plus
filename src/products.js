@@ -1,0 +1,4 @@
+export const BizPowerSMEBusinessLoan = { "_id": { "$oid": "60c44cd9b0a0a94afd68f7d6" }, "name": "BizPower SME Business Loan", "type": "business", "requirements": ["mgmt_ownership", "op_duration", "sole_proprietor", "partnership", "private_limited_company"] };
+export const BizPowerSMEPropertyLoan = { "_id": { "$oid": "60c44fa4b0a0a94afd68f7d7" }, "name": "BizPower SME Property Loan", "type": "property", "requirements": ["mgmt_ownership", "op_duration", "sole_proprietor", "partnership", "private_limited_company"] };
+export const BizPlus = { "_id": { "$oid": "60c4500db0a0a94afd68f7d8" }, "name": "BizPlus/-i", "type": "business", "requirements": ["mgmt_ownership", "op_duration", "sole_proprietor", "partnership", "private_limited_company"] };
+export const BizPowerReliefFinancing = { "_id": { "$oid": "60c4506fb0a0a94afd68f7d9" }, "name": "BizPower Relief Financing", "type": "relief", "requirements": ["msian_ownership"] };

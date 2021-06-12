@@ -9,9 +9,7 @@ const Layout = ({ children }) => {
       </header>
       <div className="w-full">
         {children}
-        <div className="flex justify-end">
-          <Chatbot />
-        </div>
+        <Chatbot />
       </div>
     </>
   )

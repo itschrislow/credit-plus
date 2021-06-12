@@ -3,7 +3,7 @@ import Chatbot from "components/Chatbot";
 
 const Layout = ({ children, showChatbot, setShowChatbot }) => {
   return (
-    <div className="h-screen overflow-hidden">
+    <div className="h-screen">
       <Nav />
       <main>
         {children}

@@ -1,8 +1,8 @@
 import { useState } from "react";
 
+import '../styles/globals.css'
 import Layout from 'src/components/Layout'
 
-import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
   const [showChatbot, setShowChatbot] = useState(false);

@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import ReactChatBot from "react-simple-chatbot";
 
@@ -18,6 +19,12 @@ const Chatbot = ({ showChatbot, setShowChatbot }) => {
       floating={true}
       opened={showChatbot}
       toggleFloating={toggle}
+      enableMobileAutoFocus={true}
+      handleEnd={() => {
+        setTimeout(() => {
+          setShowChatbot(false)
+        }, 1000);
+      }}
       headerTitle="Rob"
       style={{ fontFamily: "sans-serif" }}
       bubbleStyle={{ color: "white", backgroundColor: "#0464b4", fontSize: "16px" }}
@@ -169,19 +176,30 @@ const Chatbot = ({ showChatbot, setShowChatbot }) => {
         {
           id: "balance",
           user: true,
-          trigger: "processing",
+          trigger: "recommendation",
         },
         {
-          id: "processing",
-          message: "Please give me a second to find the best product for you.",
-          trigger: "end",
-        },
-        {
-          id: "end",
+          id: "recommendation",
           component: <Products />,
-          asMessage: true,
+          trigger: "loop",
+        },
+        {
+          id: "loop",
+          message: "Would you like to explore other products?",
+          trigger: "loop_options",
+        },
+        {
+          id: "loop_options",
+          options: [
+            { value: true, label: "Yes", trigger: "q5" },
+            { value: false, label: "No", trigger: "bye" },
+          ],
+        },
+        {
+          id: "bye",
+          message: "Hope to see you again!",
           end: true,
-        }
+        },
       ]}
     />
   );
@@ -194,6 +212,8 @@ const ProductType = {
 }
 
 const Products = ({ steps }) => {
+  const router = useRouter();
+
   const { type } = steps;
   const products = [
     BizPowerSMEBusinessLoan,
@@ -236,6 +256,9 @@ const Products = ({ steps }) => {
         <p>Sorry, you are not eligible for any of our products at the moment.</p>
       )
     } else {
+      setTimeout(() => {
+        router.push({ pathname: "/estimate", query: { persona: productType } });
+      }, 1);
       return (
         <p>The best product for you is {bestProduct?.name}.</p>
       )

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import {
   BusinessPersona,
   PropertyPersona,
+  ReliefPersona,
 } from "src/persona";
 
 const Estimation = () => {
@@ -14,6 +15,7 @@ const Estimation = () => {
   useEffect(() => {
     if (params === "business") setBreakdown(BusinessPersona);
     if (params === "property") setBreakdown(PropertyPersona);
+    if (params === "relief") setBreakdown(ReliefPersona);
   }, [params])
 
   return (

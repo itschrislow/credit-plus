@@ -49,3 +49,29 @@ export const BusinessPersona = {
     },
   }
 }
+
+export const ReliefPersona = {
+  approval_rate: 84,
+  product_name: "BizPower Relief Financing",
+  scores: {
+    financials: 80,
+    credit: 95,
+    viability: 100,
+  },
+  factors: {
+    financials: {
+      balance: true,
+      income: true,
+      cash_flow: true,
+    },
+    credit: {
+      payment_behaviour: false,
+      outstanding_payments: true,
+      credit_length: true,
+    },
+    viability: {
+      solvency: true,
+      liquidity: true,
+    },
+  }
+}

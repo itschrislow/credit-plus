@@ -4,7 +4,7 @@ const Nav = () => {
   return (
     <nav className="z-10 h-20 w-full px-10 flex items-center">
       <img src="/static/images/rhb-logo.png" />
-      <div className="w-full flex justify-evenly font-light">
+      {/* <div className="w-full flex justify-evenly font-light">
         <Link href="/">
           <h1 className="cursor-pointer hover:underline">
             BizPower SME Business Loan
@@ -25,7 +25,7 @@ const Nav = () => {
             BizPower Relief Financing
           </h1>
         </Link>
-      </div>
+      </div> */}
     </nav>
   )
 }

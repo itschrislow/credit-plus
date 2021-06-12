@@ -1,5 +1,5 @@
-import Nav from "components/nav";
-import Chatbot from "components/Chatbot";
+import Nav from "src/components/nav";
+import Chatbot from "src/components/Chatbot";
 
 const Layout = ({ children, showChatbot, setShowChatbot }) => {
   return (

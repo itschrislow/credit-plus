@@ -15,7 +15,7 @@ const Chatbot = ({ showChatbot, setShowChatbot }) => {
   return (
     <ReactChatBot
       botDelay={500}
-      userDelay={500}
+      userDelay={0}
       floating={true}
       opened={showChatbot}
       toggleFloating={toggle}
@@ -25,7 +25,7 @@ const Chatbot = ({ showChatbot, setShowChatbot }) => {
           setShowChatbot(false)
         }, 1000);
       }}
-      headerTitle="Rob"
+      headerTitle="Bob"
       style={{ fontFamily: "sans-serif" }}
       bubbleStyle={{ color: "white", backgroundColor: "#0464b4", fontSize: "16px" }}
       bubbleOptionStyle={{ backgroundColor: "#0464b4" }}
@@ -46,7 +46,7 @@ const Chatbot = ({ showChatbot, setShowChatbot }) => {
           }}
         >
           <h2 className="sc-crzoAE kYtdwL rsc-header-title">
-            Rob
+            Bob
           </h2>
           <a onClick={() => setShowChatbot(false)} style={{ cursor: "pointer" }}>
             <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg>
@@ -56,7 +56,7 @@ const Chatbot = ({ showChatbot, setShowChatbot }) => {
       steps={[
         {
           id: "q1",
-          message: "Hi, my name is Rob. What's yours?",
+          message: "Hi, my name is Bob, your virtual Relationship Manager! What's yours?",
           trigger: "name",
         },
         {
@@ -116,7 +116,7 @@ const Chatbot = ({ showChatbot, setShowChatbot }) => {
           id: "mgmt_ownership",
           options: [
             { value: true, label: "Yes", trigger: "q7" },
-            { value: false, label: "No", trigger: "q7" },
+            { value: false, label: "No", trigger: "deny" },
           ],
         },
         {
@@ -128,7 +128,7 @@ const Chatbot = ({ showChatbot, setShowChatbot }) => {
           id: "msian_ownership",
           options: [
             { value: true, label: "Yes", trigger: "q8" },
-            { value: false, label: "No", trigger: "q8" },
+            { value: false, label: "No", trigger: "deny" },
           ],
         },
         {
@@ -154,8 +154,22 @@ const Chatbot = ({ showChatbot, setShowChatbot }) => {
         {
           id: "op_duration",
           options: [
-            { value: true, label: "Yes", trigger: "q10" },
-            { value: false, label: "No", trigger: "q10" },
+            { value: true, label: "Yes", trigger: "q13" },
+            { value: false, label: "No", trigger: "deny" },
+          ],
+        },
+        {
+          id: "q13",
+          message: "What industry is your business in?",
+          trigger: "industry"
+        },
+        {
+          id: "industry",
+          options: [
+            { value: "tech", label: "Technology", trigger: "q10"},
+            { value: "retail", label: "Retail", trigger: "q10"},
+            { value: "manufacture", label: "Manufacture", trigger: "q10"},
+            { value: "other", label: "Other", trigger: "q13"},
           ],
         },
         {
@@ -176,7 +190,17 @@ const Chatbot = ({ showChatbot, setShowChatbot }) => {
         {
           id: "balance",
           user: true,
-          trigger: "recommendation",
+          trigger: "q14",
+        },
+        {
+          id: "q14",
+          message: "How much would you like to finance?",
+          trigger: "finance"
+        },
+        { 
+          id: "finance",
+          user: true,
+          trigger: "recommendation"
         },
         {
           id: "recommendation",
@@ -200,6 +224,11 @@ const Chatbot = ({ showChatbot, setShowChatbot }) => {
           message: "Hope to see you again!",
           end: true,
         },
+        {
+          id: "deny",
+          message: "Sorry, you are not eligible for any of our products at the moment.",
+          trigger: "loop"
+        }
       ]}
     />
   );
@@ -211,10 +240,16 @@ const ProductType = {
   Relief: "relief",
 }
 
+const Persona = {
+  Success: "success",
+  Failure: "failure",
+}
+
 const Products = ({ steps }) => {
   const router = useRouter();
 
   const { type } = steps;
+  const { industry } = steps;
   const products = [
     BizPowerSMEBusinessLoan,
     BizPowerSMEPropertyLoan,
@@ -223,6 +258,7 @@ const Products = ({ steps }) => {
   ];
 
   const [productType, setProductType] = useState();
+  const [persona, setPersona] = useState();
   const [bestProduct, setBestProduct] = useState(null);
 
   const getProducts = (productType) => {
@@ -257,7 +293,8 @@ const Products = ({ steps }) => {
       )
     } else {
       setTimeout(() => {
-        router.push({ pathname: "/estimate", query: { persona: productType } });
+        
+        router.push({ pathname: "/estimate", query: { persona: persona == null ? productType : persona } });
       }, 1);
       return (
         <p>The best product for you is {bestProduct?.name}.</p>
@@ -270,6 +307,8 @@ const Products = ({ steps }) => {
       if (type.value === ProductType.Business) setProductType(ProductType.Business);
       if (type.value === ProductType.Property) setProductType(ProductType.Property);
       if (type.value === ProductType.Relief) setProductType(ProductType.Relief);
+      if (industry.value.toLowerCase() == "tech")  setPersona(Persona.Success);
+      if (industry.value.toLowerCase() == "retail") setPersona(Persona.Failure)
     }
   }, [steps])
 

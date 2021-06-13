@@ -23,7 +23,7 @@ const Chatbot = ({ showChatbot, setShowChatbot }) => {
       handleEnd={() => {
         setTimeout(() => {
           setShowChatbot(false)
-        }, 1000);
+        }, 500);
       }}
       headerTitle="Bob"
       style={{ fontFamily: "sans-serif" }}
@@ -166,10 +166,10 @@ const Chatbot = ({ showChatbot, setShowChatbot }) => {
         {
           id: "industry",
           options: [
-            { value: "tech", label: "Technology", trigger: "q10"},
-            { value: "retail", label: "Retail", trigger: "q10"},
-            { value: "manufacture", label: "Manufacture", trigger: "q10"},
-            { value: "other", label: "Other", trigger: "q13"},
+            { value: "tech", label: "Technology", trigger: "q10" },
+            { value: "retail", label: "Retail", trigger: "q10" },
+            { value: "manufacture", label: "Manufacture", trigger: "q10" },
+            { value: "other", label: "Other", trigger: "q13" },
           ],
         },
         {
@@ -197,7 +197,7 @@ const Chatbot = ({ showChatbot, setShowChatbot }) => {
           message: "How much would you like to finance?",
           trigger: "finance"
         },
-        { 
+        {
           id: "finance",
           user: true,
           trigger: "recommendation"
@@ -293,7 +293,7 @@ const Products = ({ steps }) => {
       )
     } else {
       setTimeout(() => {
-        
+
         router.push({ pathname: "/estimate", query: { persona: persona == null ? productType : persona } });
       }, 1);
       return (
@@ -304,11 +304,11 @@ const Products = ({ steps }) => {
 
   useEffect(() => {
     if (steps) {
-      if (type.value === ProductType.Business) setProductType(ProductType.Business);
-      if (type.value === ProductType.Property) setProductType(ProductType.Property);
-      if (type.value === ProductType.Relief) setProductType(ProductType.Relief);
-      if (industry.value.toLowerCase() == "tech")  setPersona(Persona.Success);
-      if (industry.value.toLowerCase() == "retail") setPersona(Persona.Failure)
+      if (type?.value === ProductType.Business) setProductType(ProductType.Business);
+      if (type?.value === ProductType.Property) setProductType(ProductType.Property);
+      if (type?.value === ProductType.Relief) setProductType(ProductType.Relief);
+      if (industry?.value.toLowerCase() == "tech") setPersona(Persona.Success);
+      if (industry?.value.toLowerCase() == "retail") setPersona(Persona.Failure)
     }
   }, [steps])
 

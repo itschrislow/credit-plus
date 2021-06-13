@@ -1,10 +1,11 @@
 export const PropertyPersona = {
-  approval_rate: 50,
+  approval_rate: 55,
+  finance_rate: 6.25,
   product_name: "BizPower SME Property Loan",
   scores: {
-    financials: 40,
-    credit: 50,
-    viability: 60,
+    financials: 45,
+    credit: 86,
+    viability: 40,
   },
   factors: {
     financials: {
@@ -25,12 +26,13 @@ export const PropertyPersona = {
 }
 
 export const BusinessPersona = {
-  approval_rate: 93,
+  approval_rate: 87,
+  finance_rate: 3.45,
   product_name: "BizPower SME Business Loan",
   scores: {
     financials: 80,
-    credit: 95,
-    viability: 100,
+    credit: 90,
+    viability: 83,
   },
   factors: {
     financials: {
@@ -39,7 +41,7 @@ export const BusinessPersona = {
       cash_flow: true,
     },
     credit: {
-      payment_behaviour: false,
+      payment_behaviour: true,
       outstanding_payments: true,
       credit_length: true,
     },
@@ -52,6 +54,7 @@ export const BusinessPersona = {
 
 export const ReliefPersona = {
   approval_rate: 84,
+  finance_rate: 3.45,
   product_name: "BizPower Relief Financing",
   scores: {
     financials: 80,
@@ -78,6 +81,7 @@ export const ReliefPersona = {
 
 export const SuccessPersona = {
   approval_rate: 86,
+  finance_rate: 3.75,
   product_name: "BizPower SME Business Loan",
   scores: {
     financials: 80,
@@ -104,6 +108,7 @@ export const SuccessPersona = {
 
 export const FailurePersona = {
   approval_rate: 55,
+  finance_rate: 6.25,
   product_name: "BizPower SME Property Loan",
   scores: {
     financials: 45,
@@ -134,12 +139,12 @@ export const FailurePersona = {
 //   const { finance } = steps;
 //   const { type } = steps;
 
-  
+
 
 //   const rating = calculateApprovalRate(income, balance, finance);
 //   const name = getProductname(type);
 
-  
+
 // }
 
 // function getProductname(type) {
@@ -165,7 +170,7 @@ export const FailurePersona = {
 //   } else {
 //     this.incomeScore = 0
 //   }
-  
+
 //   if (balance < 0) {
 //     this.balanceScore = 0;
 //   } else {

@@ -167,7 +167,7 @@ const Breakdown = ({ factors }) => {
               </svg>
             }
             <span className="text-sm text-gray-500">
-              Cash Flow
+              Financing Amount
             </span>
           </li>
         </ul>

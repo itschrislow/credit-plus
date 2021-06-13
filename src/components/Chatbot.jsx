@@ -56,7 +56,7 @@ const Chatbot = ({ showChatbot, setShowChatbot }) => {
       steps={[
         {
           id: "q1",
-          message: "Hi, my name is Bob. What's yours?",
+          message: "Hi, my name is Bob, your virtual Relationship Manager! What's yours?",
           trigger: "name",
         },
         {

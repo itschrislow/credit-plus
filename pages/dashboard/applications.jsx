@@ -1,7 +1,4 @@
-import {
-  CashIcon,
-  ChevronRightIcon,
-} from '@heroicons/react/solid'
+import { CashIcon } from '@heroicons/react/solid'
 
 const transactions = [
   {

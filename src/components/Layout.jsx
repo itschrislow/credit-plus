@@ -164,14 +164,12 @@ const Layout = ({ children, showChatbot, setShowChatbot }) => {
                     {({ open }) => (
                       <>
                         <div>
-                          <Menu.Button className="max-w-xs bg-white rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 lg:p-2 lg:rounded-md lg:hover:bg-gray-50">
-                            <img
-                              className="h-8 w-8 rounded-full"
-                              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                              alt=""
-                            />
+                          <Menu.Button className="max-w-xs bg-white rounded-full flex items-center text-sm focus:outline-none focus:ring-0 lg:p-2 lg:rounded-md lg:hover:bg-gray-50">
+                            <div className="h-8 w-8 flex items-center justify-center rounded-full text-white font-medium bg-gray-300">
+                              <p>A</p>
+                            </div>
                             <span className="hidden ml-3 text-gray-700 text-sm font-medium lg:block">
-                              <span className="sr-only">Open user menu for </span>Emilia Birch
+                              <span className="sr-only">Open user menu for </span>RHB Admin
                             </span>
                             <ChevronDownIcon
                               className="hidden flex-shrink-0 ml-1 h-5 w-5 text-gray-400 lg:block"
@@ -202,19 +200,6 @@ const Layout = ({ children, showChatbot, setShowChatbot }) => {
                                     ${active ? 'bg-gray-100' : ''}
                                   `}
                                 >
-                                  Your Profile
-                                </a>
-                              )}
-                            </Menu.Item>
-                            <Menu.Item>
-                              {({ active }) => (
-                                <a
-                                  href="#"
-                                  className={`
-                                    block px-4 py-2 text-sm text-gray-700 
-                                    ${active ? 'bg-gray-100' : ''}
-                                  `}
-                                >
                                   Settings
                                 </a>
                               )}
@@ -222,7 +207,7 @@ const Layout = ({ children, showChatbot, setShowChatbot }) => {
                             <Menu.Item>
                               {({ active }) => (
                                 <a
-                                  href="#"
+                                  href="/"
                                   className={`
                                     block px-4 py-2 text-sm text-gray-700 
                                     ${active ? 'bg-gray-100' : ''}

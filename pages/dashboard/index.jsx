@@ -5,8 +5,6 @@ import {
   CashIcon,
   TrashIcon,
   ScaleIcon,
-  ChartPieIcon,
-  ClipboardIcon,
   CalculatorIcon,
 } from '@heroicons/react/outline'
 
@@ -14,8 +12,6 @@ const cards = [
   { name: 'Amount financed', href: '#', icon: ScaleIcon, amount: '$30,659.45' },
   { name: 'Average interest rate', href: '#', icon: CalculatorIcon, amount: '4.5%' },
   { name: 'Active loans', href: '#', icon: CashIcon, amount: '2,367' },
-  { name: 'Industry', href: '#', icon: ChartPieIcon, amount: 'Technology' },
-  { name: 'Product', href: '#', icon: ClipboardIcon, amount: 'BizPlus/-i' },
   { name: 'Defaulted loans', href: '#', icon: TrashIcon, amount: '184' },
 ]
 
@@ -39,7 +35,7 @@ const Dashboard = () => {
           </h2>
           <Dropdown currProduct={currProduct} setCurrProduct={setCurrProduct} />
         </div>
-        <div className="mt-2 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-2 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
           {/* Card */}
           {cards.map((card) => (
             <div key={card.name} className="bg-white overflow-hidden shadow rounded-lg">
@@ -56,13 +52,6 @@ const Dashboard = () => {
                       </dd>
                     </dl>
                   </div>
-                </div>
-              </div>
-              <div className="bg-gray-50 px-5 py-3">
-                <div className="text-sm">
-                  <a href={card.href} className="font-medium text-cyan-700 hover:text-cyan-900">
-                    View all
-                  </a>
                 </div>
               </div>
             </div>

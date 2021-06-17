@@ -1,19 +1,25 @@
 import { Fragment, useState } from 'react'
 import { Menu, Transition } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/solid'
 import {
-  CashIcon,
-  TrashIcon,
+  ChevronDownIcon,
+  ArrowCircleUpIcon,
+  ArrowCircleDownIcon,
+} from '@heroicons/react/solid'
+import {
   ScaleIcon,
-  CalculatorIcon,
+  ChartPieIcon,
+  CreditCardIcon,
 } from '@heroicons/react/outline'
 
-const cards = [
-  { name: 'Amount financed', href: '#', icon: ScaleIcon, amount: '$30,659.45' },
-  { name: 'Average interest rate', href: '#', icon: CalculatorIcon, amount: '4.5%' },
-  { name: 'Active loans', href: '#', icon: CashIcon, amount: '2,367' },
-  { name: 'Defaulted loans', href: '#', icon: TrashIcon, amount: '184' },
-]
+import CTOS from 'src/components/Charts/CTOS'
+import Sector from 'src/components/Charts/Sector'
+import Turnover from 'src/components/Charts/Turnover'
+
+const Cards = {
+  Sector: { name: 'Sector', icon: ChartPieIcon, best: 'Technology', worst: 'Retail' },
+  CTOS: { name: 'CTOS SME Score', icon: CreditCardIcon, best: '367', worst: '231' },
+  Turnover: { name: 'Finance Amount vs Turnover', icon: ScaleIcon, best: '4', worst: '2' },
+}
 
 const Products = {
   All: 'All products',
@@ -24,39 +30,65 @@ const Products = {
 }
 
 const Dashboard = () => {
+  const [currCard, setCurrCard] = useState(Cards.Sector)
   const [currProduct, setCurrProduct] = useState(Products.All);
 
   return (
     <div className="mt-8">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="h-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between">
           <h2 className="text-lg leading-6 font-medium text-gray-900">
             Overview
           </h2>
           <Dropdown currProduct={currProduct} setCurrProduct={setCurrProduct} />
         </div>
-        <div className="mt-2 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-2 mb-5 grid grid-cols-1 sm:grid-cols-3 gap-5">
           {/* Card */}
-          {cards.map((card) => (
-            <div key={card.name} className="bg-white overflow-hidden shadow rounded-lg">
-              <div className="p-5">
-                <div className="flex items-center">
-                  <div className="flex-shrink-0">
-                    <card.icon className="h-6 w-6 text-gray-400" aria-hidden="true" />
-                  </div>
-                  <div className="ml-5 w-0 flex-1">
-                    <dl>
-                      <dt className="text-sm font-medium text-gray-500 truncate">{card.name}</dt>
-                      <dd>
-                        <div className="text-lg font-medium text-gray-900">{card.amount}</div>
-                      </dd>
-                    </dl>
+          {Object.keys(Cards).map((key) => {
+            const { name, icon, best, worst } = Cards[key];
+            return (
+              <div
+                key={name}
+                className={`bg-white overflow-hidden rounded-lg border-2
+                ${currCard === Cards[key] ? "border-darkBlue" : "border-transparent"}
+                `}
+                onClick={() => setCurrCard(Cards[key])}
+              >
+                <div className="p-5">
+                  <div className="flex">
+                    <div className="flex-shrink-0">
+                      <icon className="h-6 w-6 text-gray-400" aria-hidden="true" />
+                    </div>
+                    <div className="ml-5 w-0 flex-1">
+                      <dl>
+                        <dt className="text-sm font-medium text-gray-500 truncate">{name}</dt>
+                        <dd>
+                          <div className="flex items-center text-lg font-medium text-gray-900">
+                            <ArrowCircleUpIcon
+                              className="mr-2 h-5 w-5 text-green-500"
+                              aria-hidden="true"
+                            />
+                            {best}
+                          </div>
+                          <div className="flex items-center text-lg font-medium text-gray-900">
+                            <ArrowCircleDownIcon
+                              className="mr-2 h-5 w-5 text-red-500"
+                              aria-hidden="true"
+                            />
+                            {worst}
+                          </div>
+                        </dd>
+                      </dl>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
+        {currCard === Cards.Sector && <Sector />}
+        {currCard === Cards.CTOS && <CTOS />}
+        {currCard === Cards.Turnover && <Turnover />}
       </div>
     </div>
   )

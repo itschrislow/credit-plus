@@ -1,27 +1,25 @@
+import { useState } from 'react';
 import { CashIcon } from '@heroicons/react/solid'
 
-const transactions = [
-  {
-    id: 1,
-    name: 'Payment to Molly Sanders',
-    href: '#',
-    amount: '$20,000',
-    currency: 'USD',
-    status: 'success',
-    date: 'July 11, 2020',
-    datetime: '2020-07-11',
-  },
-  // More transactions...
-]
+import { TRANSACTIONS } from "src/data/transactions";
+
+import ApplicationDetails from 'src/components/ApplicationDetails';
+
 const statusStyles = {
   success: 'bg-green-100 text-green-800',
   processing: 'bg-yellow-100 text-yellow-800',
-  failed: 'bg-gray-100 text-gray-800',
+  rejected: 'bg-gray-100 text-gray-800',
 }
 
 const Applications = () => {
+  const [showDetails, setShowDetails] = useState(true);
+
   return (
-    <>
+    <div className="h-screen">
+      <ApplicationDetails
+        showDetails={showDetails}
+        setShowDetails={setShowDetails}
+      />
       <h2 className="max-w-6xl mx-auto mt-8 px-4 text-lg leading-6 font-medium text-gray-900 sm:px-6 lg:px-8">
         Recent activity
       </h2>
@@ -33,21 +31,27 @@ const Applications = () => {
               <thead>
                 <tr>
                   <th className="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Transaction
-                          </th>
-                  <th className="px-6 py-3 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Company
+                  </th>
+                  <th className="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Product
+                  </th>
+                  <th className="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Amount
-                          </th>
-                  <th className="hidden px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider md:block">
+                  </th>
+                  <th className="hidden px-6 py-3 bg-gray-50 text-center text-xs font-medium text-gray-500 uppercase tracking-wider md:block">
                     Status
-                          </th>
+                  </th>
                   <th className="px-6 py-3 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Date
                   </th>
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
-                {transactions.map((transaction) => (
+              <tbody
+                className="bg-white divide-y divide-gray-200"
+                onClick={() => setShowDetails(true)}
+              >
+                {TRANSACTIONS.map((transaction) => (
                   <tr key={transaction.id} className="bg-white">
                     <td className="max-w-0 w-full px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                       <div className="flex">
@@ -98,19 +102,19 @@ const Applications = () => {
                   className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
                 >
                   Previous
-                        </a>
+                </a>
                 <a
                   href="#"
                   className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
                 >
                   Next
-                        </a>
+                </a>
               </div>
             </nav>
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

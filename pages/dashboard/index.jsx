@@ -17,7 +17,7 @@ import Turnover from 'src/components/Charts/Turnover'
 
 const Cards = {
   Sector: { name: 'Sector', icon: ChartPieIcon, best: 'Technology', worst: 'Utility' },
-  ProductStats: { name: 'Product Statistics', icon: CreditCardIcon, best: 'BizPower SME Business Loan', worst: 'BizPlus' },
+  ProductStats: { name: 'Product Statistics', icon: CreditCardIcon, best: 'BizPower SME Business Loan', worst: 'BizPlus/-i' },
   Turnover: { name: 'Finance Amount vs Turnover', icon: ScaleIcon, best: '4', worst: '2' },
 }
 

@@ -1,6 +1,6 @@
 const Home = ({ setShowChatbot }) => {
   return (
-    <div className="-mt-20 pt-20 h-screen w-full flex items-center justify-center bg-mainBg bg-no-repeat bg-cover bg-center">
+    <div className="-mt-16 pt-20 h-screen w-full flex items-center justify-center bg-mainBg bg-no-repeat bg-cover bg-center">
       <div className="text-center">
         <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
           <span className="block xl:inline">Finance your business with RHB</span>

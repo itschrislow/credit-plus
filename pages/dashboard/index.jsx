@@ -123,6 +123,7 @@ const Dropdown = ({ currProduct, setCurrProduct }) => {
               <div className="py-1">
                 {Object.keys(Products).map(key => (
                   <Menu.Item
+                    key={key}
                     onClick={() => setCurrProduct(Products[key])}
                   >
                     {({ active }) => (

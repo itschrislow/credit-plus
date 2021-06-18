@@ -9,9 +9,10 @@ import {
   CurrencyDollarIcon,
 } from '@heroicons/react/solid'
 
+import { statusStyles } from "../../pages/dashboard/applications";
+
 import Credit from './Application/Credit';
 import Analysis from './Application/Analysis';
-import Business from './Application/Business';
 import Financials from './Application/Financials';
 import Directorship from './Application/Directorship';
 
@@ -19,13 +20,33 @@ export const DetailsTabs = {
   Analysis: { name: 'Analysis', tab: 'Analysis' },
   Financials: { name: 'Financials', tab: 'Financials' },
   Credit: { name: 'Credit Report', tab: 'Credit' },
-  Business: { name: 'Business Viability', tab: 'Business' },
   Directorship: { name: 'Directorship', tab: 'Directorship' },
 }
 
-const ApplicationDetails = ({ showDetails, setShowDetails }) => {
+const ApplicationDetails = ({
+  index,
+  showDetails,
+  setShowDetails,
+  applications,
+  setApplications,
+}) => {
   const router = useRouter();
+
   const closeModal = () => setShowDetails(false);
+
+  const handleApprove = () => {
+    let newApplications = [...applications];
+    applications[index].status = 'approved';
+    setApplications(newApplications);
+    closeModal();
+  }
+
+  const handleReject = () => {
+    let newApplications = [...applications];
+    applications[index].status = 'rejected';
+    setApplications(newApplications);
+    closeModal();
+  }
 
   return (
     <Transition appear show={showDetails} as={Fragment}>
@@ -82,8 +103,8 @@ const ApplicationDetails = ({ showDetails, setShowDetails }) => {
                         <div>
                           {/* COMPANY NAME */}
                           <h3 className="font-bold text-xl text-gray-900 sm:text-2xl">
-                            Visibl Solutions
-                            </h3>
+                            {applications[index].name}
+                          </h3>
                           {/* SSM REG */}
                           <p className="mb-2 text-sm text-gray-500">
                             202003315827 (003190749-H)
@@ -92,35 +113,60 @@ const ApplicationDetails = ({ showDetails, setShowDetails }) => {
                           <div className="-ml-1 flex flex-col sm:flex-row sm:flex-wrap sm:mt-0 sm:space-x-6">
                             <div className="flex items-center text-sm text-gray-500">
                               <BookmarkIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
-                                BizPower SME Business Loan
-                              </div>
+                              {applications[index].product}
+                            </div>
                             <div className="flex items-center text-sm text-gray-500">
                               <CurrencyDollarIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
-                                MYR 120,000
-                              </div>
+                                MYR {new Intl.NumberFormat().format(applications[index].amount)}
+                            </div>
                             <div className="flex items-center text-sm text-gray-500">
                               <CalendarIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
-                                Applied on January 9, 2020
+                                Applied on {applications[index].date}
                             </div>
                           </div>
                         </div>
                         {/* APPROVE / REJECT BUTTONS */}
-                        <div className="flex space-x-3">
-                          <button
-                            type="button"
-                            className="inline-flex self-start items-center px-3 py-2 border border-red-500 shadow-sm text-sm leading-4 font-medium rounded-md text-red-700 bg-white hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-                            onClick={closeModal}
-                          >
-                            Reject
+                        {applications[index].status !== "processing" ?
+                          <>
+                            {applications[index].status === "approved" &&
+                              <span
+                                className={`
+                                  inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium capitalize 
+                                  ${statusStyles[applications[index].status]}
+                                `}
+                              >
+                                {applications[index].status}
+                              </span>
+                            }
+                            {applications[index].status === "rejected" &&
+                              <span
+                                className={`
+                                  inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium capitalize 
+                                  ${statusStyles[applications[index].status]}
+                                `}
+                              >
+                                {applications[index].status}
+                              </span>
+                            }
+                          </>
+                          :
+                          <div className="flex space-x-3">
+                            <button
+                              type="button"
+                              className="inline-flex self-start items-center px-3 py-2 border border-red-500 shadow-sm text-sm leading-4 font-medium rounded-md text-red-700 bg-white hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                              onClick={handleReject}
+                            >
+                              Reject
                             </button>
-                          <button
-                            type="button"
-                            className="inline-flex self-start items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-green-700 bg-green-100 hover:bg-green-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
-                            onClick={closeModal}
-                          >
-                            Approve
-                            </button>
-                        </div>
+                            <button
+                              type="button"
+                              className="inline-flex self-start items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-green-700 bg-green-100 hover:bg-green-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                              onClick={handleApprove}
+                            >
+                              Approve
+                          </button>
+                          </div>
+                        }
                       </div>
 
                       {/* NAV */}
@@ -162,9 +208,6 @@ const ApplicationDetails = ({ showDetails, setShowDetails }) => {
                       }
                       {router.query.tab === DetailsTabs.Credit.tab &&
                         <Credit />
-                      }
-                      {router.query.tab === DetailsTabs.Business.tab &&
-                        <Business />
                       }
                       {router.query.tab === DetailsTabs.Directorship.tab &&
                         <Directorship />

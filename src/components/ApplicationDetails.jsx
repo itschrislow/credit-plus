@@ -105,11 +105,7 @@ const ApplicationDetails = ({
                         <div>
                           {/* COMPANY NAME */}
                           <h3 className="font-bold text-xl text-gray-900 sm:text-2xl">
-<<<<<<< HEAD
-                            Visibl Solutions
-=======
                             {applications[index].name}
->>>>>>> 9b6d386c86b25c4b2884e00c954a6a74c3ce0e25
                           </h3>
                           {/* SSM REG */}
                           <p className="mb-2 text-sm text-gray-500">
@@ -123,17 +119,6 @@ const ApplicationDetails = ({
                           <div className="-ml-1 flex flex-col sm:flex-row sm:flex-wrap sm:mt-0 sm:space-x-6">
                             <div className="flex items-center text-sm text-gray-500">
                               <BookmarkIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
-<<<<<<< HEAD
-                              BizPower SME Business Loan
-                            </div>
-                            <div className="flex items-center text-sm text-gray-500">
-                              <CurrencyDollarIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
-                              MYR 120,000
-                            </div>
-                            <div className="flex items-center text-sm text-gray-500">
-                              <CalendarIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
-                              Applied on January 9, 2020
-=======
                               {applications[index].product}
                             </div>
                             <div className="flex items-center text-sm text-gray-500">
@@ -143,29 +128,10 @@ const ApplicationDetails = ({
                             <div className="flex items-center text-sm text-gray-500">
                               <CalendarIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
                                 Applied on {applications[index].date}
->>>>>>> 9b6d386c86b25c4b2884e00c954a6a74c3ce0e25
                             </div>
                           </div>
                         </div>
                         {/* APPROVE / REJECT BUTTONS */}
-<<<<<<< HEAD
-                        <div className="flex space-x-3">
-                          <button
-                            type="button"
-                            className="inline-flex self-start items-center px-3 py-2 border border-red-500 shadow-sm text-sm leading-4 font-medium rounded-md text-red-700 bg-white hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-                            onClick={closeModal}
-                          >
-                            Reject
-                          </button>
-                          <button
-                            type="button"
-                            className="inline-flex self-start items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-green-700 bg-green-100 hover:bg-green-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
-                            onClick={closeModal}
-                          >
-                            Approve
-                          </button>
-                        </div>
-=======
                         {applications[index].status !== "processing" ?
                           <>
                             {applications[index].status === "approved" &&
@@ -207,7 +173,6 @@ const ApplicationDetails = ({
                           </button>
                           </div>
                         }
->>>>>>> 9b6d386c86b25c4b2884e00c954a6a74c3ce0e25
                       </div>
 
                       {/* NAV */}

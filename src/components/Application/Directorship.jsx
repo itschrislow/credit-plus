@@ -10,14 +10,14 @@ export const DIRECTORS = [
   },
   {
     title: 'Chief Marketing Officer',
-    name: 'Emily Ang Mei Li',
+    name: 'Jason Wang Wei Wei',
     numShares: 2000000,
     sharesPercentage: 20,
     ctos: 386,
   },
   {
     title: 'Chief Technology Officer',
-    name: 'Emily Ang Mei Li',
+    name: 'Chen Yen Yen',
     numShares: 3000000,
     sharesPercentage: 30,
     ctos: 401,
@@ -37,7 +37,7 @@ const Directorship = () => {
                 </p>
                 <p>{director.name}</p>
                 <p className="inline-flex col-span-1 items-center text-blue-600 font-light underline cursor-pointer">
-                  <LinkIcon className="h-4 w-4 mr-1" />
+                  <LinkIcon className="h-4 w-4" />
                   credit-report.pdf
                 </p>
               </div>

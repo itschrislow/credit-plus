@@ -11,13 +11,13 @@ import {
   CreditCardIcon,
 } from '@heroicons/react/outline'
 
-import CTOS from 'src/components/Charts/CTOS'
+import Sales from 'src/components/Charts/Sales'
 import Sector from 'src/components/Charts/Sector'
 import Turnover from 'src/components/Charts/Turnover'
 
 const Cards = {
   Sector: { name: 'Sector', icon: ChartPieIcon, best: 'Technology', worst: 'Retail' },
-  CTOS: { name: 'CTOS SME Score', icon: CreditCardIcon, best: '367', worst: '231' },
+  Sales: { name: 'Product Sales', icon: CreditCardIcon, best: '367', worst: '231' },
   Turnover: { name: 'Finance Amount vs Turnover', icon: ScaleIcon, best: '4', worst: '2' },
 }
 
@@ -87,7 +87,7 @@ const Dashboard = () => {
           })}
         </div>
         {currCard === Cards.Sector && <Sector />}
-        {currCard === Cards.CTOS && <CTOS />}
+        {currCard === Cards.Sales && <Sales />}
         {currCard === Cards.Turnover && <Turnover />}
       </div>
     </div>

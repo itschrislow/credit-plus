@@ -1,5 +1,8 @@
-import { DocumentDownloadIcon } from '@heroicons/react/outline';
+import Link from 'next/link';
+import { LinkIcon } from '@heroicons/react/solid';
 
+import { DIRECTORS } from './Directorship';
+import { DetailsTabs } from '../ApplicationDetails';
 import { GreenBadge, YellowBadge, RedBadge } from '../Badges';
 
 const Analysis = () => {
@@ -52,9 +55,12 @@ const Analysis = () => {
       {/* PAYMENT BEHAVIOUR */}
       <div className="sm:flex sm:px-6 sm:py-5">
         <div className="text-gray-500">
-          <p className="inline-flex text-sm font-medium sm:w-40 sm:flex-shrink-0 lg:w-48">
+          <p className="text-sm font-medium sm:w-40 sm:flex-shrink-0 lg:w-48">
             Credit Report
-            <DocumentDownloadIcon className="ml-1 h-5 w-5 text-blue-500 cursor-pointer" />
+            <p className="flex col-span-1 items-center text-blue-600 font-light underline cursor-pointer">
+              <LinkIcon className="h-4 w-4" />
+              report.pdf
+            </p>
           </p>
         </div>
         <div className="w-full mt-1 text-sm text-gray-900 sm:mt-0 sm:ml-6">
@@ -115,29 +121,19 @@ const Analysis = () => {
         </p>
         <div className="w-full mt-1 text-sm text-gray-900 sm:mt-0 sm:ml-6">
           <div className="w-full grid grid-cols-3 gap-4">
-            <div className="col-span-1">
-              <p>Emily Ang Mei Li</p>
-            </div>
-            <div className="col-span-1" />
-            <div className="col-span-1 text-blue-600 font-light underline cursor-pointer">
-              View Credit Report
-            </div>
-
-            <div className="col-span-1">
-              <p>Yau Yen Yen</p>
-            </div>
-            <div className="col-span-1" />
-            <div className="col-span-1 text-blue-600 font-light underline cursor-pointer">
-              View Credit Report
-            </div>
-
-            <div className="col-span-1">
-              <p>Jimmy Wong Wei Wei</p>
-            </div>
-            <div className="col-span-1" />
-            <div className="col-span-1 text-blue-600 font-light underline cursor-pointer">
-              View Credit Report
-            </div>
+            {DIRECTORS.map(director => (
+              <>
+                <div className="col-span-1">
+                  <p>{director.name}</p>
+                </div>
+                <div className="col-span-1" />
+                <Link href={{ query: { tab: DetailsTabs.Directorship.tab } }}>
+                  <div className="col-span-1 text-blue-600 font-light underline cursor-pointer">
+                    View Credit Report
+                  </div>
+                </Link>
+              </>
+            ))}
           </div>
         </div>
       </div>

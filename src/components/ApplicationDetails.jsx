@@ -11,7 +11,6 @@ import {
 
 import Credit from './Application/Credit';
 import Analysis from './Application/Analysis';
-import Business from './Application/Business';
 import Financials from './Application/Financials';
 import Directorship from './Application/Directorship';
 
@@ -19,7 +18,6 @@ export const DetailsTabs = {
   Analysis: { name: 'Analysis', tab: 'Analysis' },
   Financials: { name: 'Financials', tab: 'Financials' },
   Credit: { name: 'Credit Report', tab: 'Credit' },
-  Business: { name: 'Business Viability', tab: 'Business' },
   Directorship: { name: 'Directorship', tab: 'Directorship' },
 }
 
@@ -162,9 +160,6 @@ const ApplicationDetails = ({ showDetails, setShowDetails }) => {
                       }
                       {router.query.tab === DetailsTabs.Credit.tab &&
                         <Credit />
-                      }
-                      {router.query.tab === DetailsTabs.Business.tab &&
-                        <Business />
                       }
                       {router.query.tab === DetailsTabs.Directorship.tab &&
                         <Directorship />

@@ -21,7 +21,7 @@ const options = {
 const ProductStats = () => {
   return (
     <div className="bg-white rounded-lg">
-      <div className="title">Product Sales</div>
+      <div className="title">Product Statistics</div>
       <Bar data={PRODUCT_STATS} options={options}></Bar>
     </div>
   );

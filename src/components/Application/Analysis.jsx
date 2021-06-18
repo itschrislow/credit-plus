@@ -15,7 +15,7 @@ const Analysis = () => {
             <div className="col-span-1">
               <p>Balance Sheet</p>
               <GreenBadge>
-                85%
+                80%
               </GreenBadge>
             </div>
             <div className="col-span-1">
@@ -26,16 +26,16 @@ const Analysis = () => {
             </div>
             <div className="col-span-1">
               <p>Liquidity Ratios</p>
-              <RedBadge>
-                34%
-              </RedBadge>
+              <YellowBadge>
+                67%
+              </YellowBadge>
             </div>
             <div className="col-span-1">
               <p>
                 Profitability Ratios
               </p>
               <GreenBadge>
-                85%
+                75%
               </GreenBadge>
             </div>
             <div className="col-span-1">
@@ -95,9 +95,9 @@ const Analysis = () => {
             </div>
             <div className="col-span-1">
               <p>Cash Flow</p>
-              <RedBadge>
+              <GreenBadge>
                 85%
-              </RedBadge>
+              </GreenBadge>
             </div>
             <div className="col-span-1">
               <p>Working Capital</p>

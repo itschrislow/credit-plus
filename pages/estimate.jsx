@@ -30,9 +30,9 @@ const Estimation = () => {
             <h2 className="text-3xl font-extrabold text-gray-100 sm:text-4xl">
               Your loan is {breakdown?.approval_rate}% likely to be approved
             </h2>
-            <p className="text-gray-100">
+            {/* <p className="text-gray-100">
               with an estimated finance rate of {breakdown?.finance_rate}%
-            </p>
+            </p> */}
             <p className="mt-3 text-xl font-medium text-gray-100 sm:mt-4 cursor-pointer">
               {breakdown?.approval_rate >= 75 ?
                 <>

@@ -15,6 +15,8 @@ import Business from './Application/Business';
 import Financials from './Application/Financials';
 import Directorship from './Application/Directorship';
 
+import { GreenBadge } from './Badges';
+
 export const DetailsTabs = {
   Analysis: { name: 'Analysis', tab: 'Analysis' },
   Financials: { name: 'Financials', tab: 'Financials' },
@@ -83,24 +85,28 @@ const ApplicationDetails = ({ showDetails, setShowDetails }) => {
                           {/* COMPANY NAME */}
                           <h3 className="font-bold text-xl text-gray-900 sm:text-2xl">
                             Visibl Solutions
-                            </h3>
+                          </h3>
                           {/* SSM REG */}
                           <p className="mb-2 text-sm text-gray-500">
                             202003315827 (003190749-H)
-                            </p>
+                          </p>
+                          <h3 className="font-bold text-xl text-gray-900 sm:text-2xl">
+                            Advisory Score:
+                            <GreenBadge className="text-lg">86</GreenBadge>
+                          </h3>
                           {/* LOAN DETAILS */}
                           <div className="-ml-1 flex flex-col sm:flex-row sm:flex-wrap sm:mt-0 sm:space-x-6">
                             <div className="flex items-center text-sm text-gray-500">
                               <BookmarkIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
-                                BizPower SME Business Loan
-                              </div>
+                              BizPower SME Business Loan
+                            </div>
                             <div className="flex items-center text-sm text-gray-500">
                               <CurrencyDollarIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
-                                MYR 120,000
-                              </div>
+                              MYR 120,000
+                            </div>
                             <div className="flex items-center text-sm text-gray-500">
                               <CalendarIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
-                                Applied on January 9, 2020
+                              Applied on January 9, 2020
                             </div>
                           </div>
                         </div>
@@ -112,14 +118,14 @@ const ApplicationDetails = ({ showDetails, setShowDetails }) => {
                             onClick={closeModal}
                           >
                             Reject
-                            </button>
+                          </button>
                           <button
                             type="button"
                             className="inline-flex self-start items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-green-700 bg-green-100 hover:bg-green-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
                             onClick={closeModal}
                           >
                             Approve
-                            </button>
+                          </button>
                         </div>
                       </div>
 

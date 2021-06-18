@@ -132,7 +132,7 @@ const ApplicationDetails = ({ showDetails, setShowDetails }) => {
                             return (
                               <Link key={key} href={{ query: { tab: key } }}>
                                 <p className={`
-                                  whitespace-nowrap pb-4 px-1 border-b-2 font-medium text-sm 
+                                  whitespace-nowrap pb-4 px-1 border-b-2 font-medium text-sm cursor-pointer 
                                   ${router.query.tab === key
                                     ? 'border-indigo-500 text-indigo-600'
                                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'

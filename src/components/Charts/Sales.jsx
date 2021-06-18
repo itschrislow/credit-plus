@@ -13,7 +13,7 @@ const options = {
   },
 };
 
-const Sector = () => {
+const Sales = () => {
   return (
     <div className="p-5 h-96 bg-white rounded-lg">
       <div className="title">Product Sales</div>
@@ -22,4 +22,4 @@ const Sector = () => {
   );
 }
 
-export default Sector;
+export default Sales;

@@ -1,18 +1,6 @@
-import { CashIcon } from '@heroicons/react/solid'
+import { CashIcon } from '@heroicons/react/solid';
+import { APPLICATIONS } from 'src/data/applications';
 
-const transactions = [
-  {
-    id: 1,
-    name: 'Payment to Molly Sanders',
-    href: '#',
-    amount: '$20,000',
-    currency: 'USD',
-    status: 'success',
-    date: 'July 11, 2020',
-    datetime: '2020-07-11',
-  },
-  // More transactions...
-]
 const statusStyles = {
   success: 'bg-green-100 text-green-800',
   processing: 'bg-yellow-100 text-yellow-800',
@@ -33,7 +21,7 @@ const Applications = () => {
               <thead>
                 <tr>
                   <th className="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Transaction
+                    Applicants
                           </th>
                   <th className="px-6 py-3 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Amount
@@ -47,35 +35,35 @@ const Applications = () => {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {transactions.map((transaction) => (
-                  <tr key={transaction.id} className="bg-white">
+                {APPLICATIONS.map((application) => (
+                  <tr key={application.id} className="bg-white">
                     <td className="max-w-0 w-full px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                       <div className="flex">
-                        <a href={transaction.href} className="group inline-flex space-x-2 truncate text-sm">
+                        <a href={application.href} className="group inline-flex space-x-2 truncate text-sm">
                           <CashIcon
                             className="flex-shrink-0 h-5 w-5 text-gray-400 group-hover:text-gray-500"
                             aria-hidden="true"
                           />
-                          <p className="text-gray-500 truncate group-hover:text-gray-900">{transaction.name}</p>
+                          <p className="text-gray-500 truncate group-hover:text-gray-900">{application.name}</p>
                         </a>
                       </div>
                     </td>
                     <td className="px-6 py-4 text-right whitespace-nowrap text-sm text-gray-500">
-                      <span className="text-gray-900 font-medium">{transaction.amount} </span>
-                      {transaction.currency}
+                      <span className="text-gray-900 font-medium">{application.amount} </span>
+                      {application.currency}
                     </td>
                     <td className="hidden px-6 py-4 whitespace-nowrap text-sm text-gray-500 md:block">
                       <span
                         className={`
                             inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium capitalize 
-                            ${statusStyles[transaction.status]}
+                            ${statusStyles[application.status]}
                           `}
                       >
-                        {transaction.status}
+                        {application.status}
                       </span>
                     </td>
                     <td className="px-6 py-4 text-right whitespace-nowrap text-sm text-gray-500">
-                      <time dateTime={transaction.datetime}>{transaction.date}</time>
+                      <time dateTime={application.datetime}>{application.date}</time>
                     </td>
                   </tr>
                 ))}

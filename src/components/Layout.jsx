@@ -87,20 +87,18 @@ const Layout = ({ children, showChatbot, setShowChatbot }) => {
                   <div className="mt-6 pt-6">
                     <div className="px-2 space-y-1">
                       {/* SETTINGS */}
-                      <Link href="/dashboard/settings">
-                        <div className={`
-                          group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md 
-                          ${router.pathname === "/dashboard/settings" ?
-                            'bg-cyan-500 text-white'
-                            :
-                            'text-cyan-100 hover:text-white hover:bg-cyan-300'
-                          }
-                        `}
-                        >
-                          <CogIcon className="mr-4 flex-shrink-0 h-6 w-6" aria-hidden="true" />
-                          <p>Settings</p>
-                        </div>
-                      </Link>
+                      <div className={`
+                        group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md 
+                        ${router.pathname === "/dashboard/settings" ?
+                          'bg-cyan-500 text-white'
+                          :
+                          'text-cyan-100 hover:text-white hover:bg-cyan-300'
+                        }
+                      `}
+                      >
+                        <CogIcon className="mr-4 flex-shrink-0 h-6 w-6" aria-hidden="true" />
+                        <p>Settings</p>
+                      </div>
                     </div>
                   </div>
                 </nav>

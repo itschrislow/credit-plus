@@ -1,13 +1,13 @@
 import { Fragment } from 'react'
-
+import { Dialog, Transition } from '@headlessui/react'
 import { XIcon, DocumentDownloadIcon } from '@heroicons/react/outline'
-import { Dialog, Transition, Menu } from '@headlessui/react'
-import { GreenBadge, YellowBadge, RedBadge } from './Badges'
 import {
   BookmarkIcon,
   CalendarIcon,
   CurrencyDollarIcon,
 } from '@heroicons/react/solid'
+
+import { GreenBadge, YellowBadge, RedBadge } from './Badges'
 
 const tabs = [
   { name: 'Analysis', href: '#', current: false },
@@ -67,36 +67,56 @@ const ApplicationDetails = ({ showDetails, setShowDetails }) => {
                       </div>
                     </div>
                   </div>
-                  {/* MAIN */}
                   <div className="divide-y divide-gray-200">
-                    <div className="">
-                      <div className="px-4 sm:px-6">
+                    {/* HEADER */}
+                    <div className="px-4 sm:px-6">
+                      {/* OVERVIEW */}
+                      <div className="mb-6 flex items-start justify-between">
                         <div>
                           {/* COMPANY NAME */}
                           <h3 className="font-bold text-xl text-gray-900 sm:text-2xl">
                             Visibl Solutions
-                          </h3>
+                            </h3>
                           {/* SSM REG */}
                           <p className="mb-2 text-sm text-gray-500">
                             202003315827 (003190749-H)
-                        </p>
+                            </p>
                           {/* LOAN DETAILS */}
-                          <div className="-ml-1 pb-6 flex flex-col sm:flex-row sm:flex-wrap sm:mt-0 sm:space-x-6">
+                          <div className="-ml-1 flex flex-col sm:flex-row sm:flex-wrap sm:mt-0 sm:space-x-6">
                             <div className="flex items-center text-sm text-gray-500">
                               <BookmarkIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
-                              BizPower SME Business Loan
-                            </div>
+                                BizPower SME Business Loan
+                              </div>
                             <div className="flex items-center text-sm text-gray-500">
                               <CurrencyDollarIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
-                              MYR 120,000
-                            </div>
+                                MYR 120,000
+                              </div>
                             <div className="flex items-center text-sm text-gray-500">
                               <CalendarIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
-                              Applied on January 9, 2020
-                          </div>
+                                Applied on January 9, 2020
+                            </div>
                           </div>
                         </div>
+                        {/* APPROVE / REJECT BUTTONS */}
+                        <div className="flex space-x-3">
+                          <button
+                            type="button"
+                            className="inline-flex self-start items-center px-3 py-2 border border-red-500 shadow-sm text-sm leading-4 font-medium rounded-md text-red-700 bg-white hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                          >
+                            Reject
+                            </button>
+                          <button
+                            type="button"
+                            className="inline-flex self-start items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-green-700 bg-green-100 hover:bg-green-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                          >
+                            Approve
+                            </button>
+                        </div>
+                      </div>
 
+                      {/* NAV */}
+                      <div className="flex justify-between">
+                        {/* TABS */}
                         <nav className="-mb-px flex space-x-8">
                           {tabs.map((tab) => (
                             <a
@@ -115,44 +135,13 @@ const ApplicationDetails = ({ showDetails, setShowDetails }) => {
                             </a>
                           ))}
                         </nav>
-                        {/* 
-                        <div className="sm:flex-1">
-                          <div>
-                            <h3 className="font-bold text-xl text-gray-900 sm:text-2xl">
-                              Visibl Solutions
-                            </h3>
-                            <p className="text-sm text-gray-500">
-                              202003315827 (003190749-H)
-                            </p>
-                          </div>
-                          <div className="mt-5 flex justify-between">
-                            <button
-                              type="button"
-                              className="inline-flex items-center px-3.5 py-2 border border-transparent text-sm leading-4 font-medium rounded-lg shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                            >
-                              Compare
-                            </button>
-                            <div className="flex space-x-3">
-                              <button
-                                type="button"
-                                className="inline-flex items-center px-3.5 py-2 border border-transparent text-sm leading-4 font-medium rounded-lg shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
-                              >
-                                Approve
-                              </button>
-                              <button
-                                type="button"
-                                className="inline-flex items-center px-3.5 py-2 border border-transparent text-sm leading-4 font-medium rounded-lg shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-                              >
-                                Reject
-                              </button>
-                            </div>
-                          </div>
-                        </div> */}
-
+                        {/* COMPARE CTA */}
+                        <p className="underline font-light text-sm text-blue-600 cursor-pointer">
+                          Compare with historical data
+                          </p>
                       </div>
-
                     </div>
-
+                    {/* MAIN */}
                     <div className="px-4 py-5 sm:px-0 sm:py-0">
                       <div className="space-y-8 sm:divide-y sm:divide-gray-200 sm:space-y-0">
                         {/* FINANCIAL STANDING */}

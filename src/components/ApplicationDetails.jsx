@@ -192,9 +192,11 @@ const ApplicationDetails = ({
                           })}
                         </nav>
                         {/* COMPARE CTA */}
-                        <p className="underline font-light text-sm text-blue-600 cursor-pointer">
-                          Compare with historical data
-                        </p>
+                        <Link href="/dashboard">
+                          <p className="underline font-light text-sm text-blue-600 cursor-pointer">
+                            Compare with historical data
+                          </p>
+                        </Link>
                       </div>
                     </div>
                     {/* MAIN */}

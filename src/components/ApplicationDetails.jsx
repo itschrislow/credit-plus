@@ -1,8 +1,21 @@
 import { Fragment } from 'react'
 
-import { XIcon } from '@heroicons/react/outline'
-import { Dialog, Transition } from '@headlessui/react'
+import { XIcon, DocumentDownloadIcon } from '@heroicons/react/outline'
+import { Dialog, Transition, Menu } from '@headlessui/react'
 import { GreenBadge, YellowBadge, RedBadge } from './Badges'
+import {
+  BookmarkIcon,
+  CalendarIcon,
+  CurrencyDollarIcon,
+} from '@heroicons/react/solid'
+
+const tabs = [
+  { name: 'Analysis', href: '#', current: false },
+  { name: 'Financials', href: '#', current: false },
+  { name: 'Credit Report', href: '#', current: true },
+  { name: 'Business Viability', href: '#', current: false },
+  { name: 'Directorships', href: '#', current: false },
+]
 
 const ApplicationDetails = ({ showDetails, setShowDetails }) => {
   const closeModal = () => setShowDetails(false)
@@ -15,6 +28,7 @@ const ApplicationDetails = ({ showDetails, setShowDetails }) => {
         onClose={closeModal}
       >
         <div className="min-h-screen px-4 bg-gray-700 bg-opacity-80">
+          {/* OVERLAY */}
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -39,11 +53,9 @@ const ApplicationDetails = ({ showDetails, setShowDetails }) => {
             >
               <div className="w-screen max-w-5xl">
                 <div className="h-full flex flex-col bg-white shadow-xl overflow-y-scroll">
+                  {/* CLOSE BUTTON */}
                   <div className="px-4 sm:px-6">
-                    <div className="h-16 flex items-center justify-between">
-                      <Dialog.Title className="text-lg font-medium text-gray-900">
-                        {/* Company Name */}
-                      </Dialog.Title>
+                    <div className="h-16 flex items-center justify-end">
                       <div className="ml-3 h-7 flex items-center">
                         <button
                           className="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none"
@@ -55,15 +67,60 @@ const ApplicationDetails = ({ showDetails, setShowDetails }) => {
                       </div>
                     </div>
                   </div>
-                  {/* Main */}
+                  {/* MAIN */}
                   <div className="divide-y divide-gray-200">
-                    <div className="pb-6">
-                      <div className="flow-root px-4 sm:flex sm:items-end sm:px-6">
+                    <div className="">
+                      <div className="px-4 sm:px-6">
+                        <div>
+                          {/* COMPANY NAME */}
+                          <h3 className="font-bold text-xl text-gray-900 sm:text-2xl">
+                            Visibl Solutions
+                          </h3>
+                          {/* SSM REG */}
+                          <p className="mb-2 text-sm text-gray-500">
+                            202003315827 (003190749-H)
+                        </p>
+                          {/* LOAN DETAILS */}
+                          <div className="-ml-1 pb-6 flex flex-col sm:flex-row sm:flex-wrap sm:mt-0 sm:space-x-6">
+                            <div className="flex items-center text-sm text-gray-500">
+                              <BookmarkIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
+                              BizPower SME Business Loan
+                            </div>
+                            <div className="flex items-center text-sm text-gray-500">
+                              <CurrencyDollarIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
+                              MYR 120,000
+                            </div>
+                            <div className="flex items-center text-sm text-gray-500">
+                              <CalendarIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
+                              Applied on January 9, 2020
+                          </div>
+                          </div>
+                        </div>
+
+                        <nav className="-mb-px flex space-x-8">
+                          {tabs.map((tab) => (
+                            <a
+                              key={tab.name}
+                              href={tab.href}
+                              className={`
+                                whitespace-nowrap pb-4 px-1 border-b-2 font-medium text-sm 
+                                ${tab.current
+                                  ? 'border-indigo-500 text-indigo-600'
+                                  : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                                }
+                              `}
+                              aria-current={tab.current ? 'page' : undefined}
+                            >
+                              {tab.name}
+                            </a>
+                          ))}
+                        </nav>
+                        {/* 
                         <div className="sm:flex-1">
                           <div>
                             <h3 className="font-bold text-xl text-gray-900 sm:text-2xl">
                               Visibl Solutions
-                              </h3>
+                            </h3>
                             <p className="text-sm text-gray-500">
                               202003315827 (003190749-H)
                             </p>
@@ -90,8 +147,10 @@ const ApplicationDetails = ({ showDetails, setShowDetails }) => {
                               </button>
                             </div>
                           </div>
-                        </div>
+                        </div> */}
+
                       </div>
+
                     </div>
 
                     <div className="px-4 py-5 sm:px-0 sm:py-0">
@@ -142,9 +201,12 @@ const ApplicationDetails = ({ showDetails, setShowDetails }) => {
                         </div>
                         {/* PAYMENT BEHAVIOUR */}
                         <div className="sm:flex sm:px-6 sm:py-5">
-                          <p className="text-sm font-medium text-gray-500 sm:w-40 sm:flex-shrink-0 lg:w-48">
-                            Credit Report
-                          </p>
+                          <div className="text-gray-500">
+                            <p className="inline-flex text-sm font-medium sm:w-40 sm:flex-shrink-0 lg:w-48">
+                              Credit Report
+                              <DocumentDownloadIcon className="ml-1 h-5 w-5 text-blue-500 cursor-pointer" />
+                            </p>
+                          </div>
                           <div className="w-full mt-1 text-sm text-gray-900 sm:mt-0 sm:ml-6">
                             <div className="w-full grid grid-cols-3 gap-4">
                               <div className="col-span-1">
@@ -192,6 +254,39 @@ const ApplicationDetails = ({ showDetails, setShowDetails }) => {
                                 <YellowBadge>
                                   34%
                                 </YellowBadge>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        {/* DIRECTORSHIP */}
+                        <div className="sm:flex sm:px-6 sm:py-5">
+                          <p className="text-sm font-medium text-gray-500 sm:w-40 sm:flex-shrink-0 lg:w-48">
+                            Directorship
+                          </p>
+                          <div className="w-full mt-1 text-sm text-gray-900 sm:mt-0 sm:ml-6">
+                            <div className="w-full grid grid-cols-3 gap-4">
+                              <div className="col-span-1">
+                                <p>Emily Ang Mei Li</p>
+                              </div>
+                              <div className="col-span-1" />
+                              <div className="col-span-1 text-blue-600 font-light underline cursor-pointer">
+                                View Credit Report
+                              </div>
+
+                              <div className="col-span-1">
+                                <p>Yau Yen Yen</p>
+                              </div>
+                              <div className="col-span-1" />
+                              <div className="col-span-1 text-blue-600 font-light underline cursor-pointer">
+                                View Credit Report
+                              </div>
+
+                              <div className="col-span-1">
+                                <p>Jimmy Wong Wei Wei</p>
+                              </div>
+                              <div className="col-span-1" />
+                              <div className="col-span-1 text-blue-600 font-light underline cursor-pointer">
+                                View Credit Report
                               </div>
                             </div>
                           </div>

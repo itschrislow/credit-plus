@@ -1,3 +1,37 @@
-export const TURNOVER = [
-
-]
+const rand = () => Math.round(Math.random() * 20 - 10);
+export const TURNOVER = {
+    datasets: [
+      {
+        label: 'Fully Repaid Loans',
+        data: [
+          { x: 50, y: 6 },
+          { x: 100, y: 53 },
+          { x: 43, y: 3 },
+          { x: 48, y: 8 },
+          { x: 53, y: 13 },
+          { x: 58, y: 20 },
+          { x: 63, y: 27 },
+          { x: 68, y: 29 },
+          { x: 67, y: 32 },
+          { x: 69, y: 36 },
+          { x: 66, y: 32 },
+          { x: 74, y: 46 },
+          { x: 77, y: 31 },
+          { x: 72, y: 35 },
+          { x: 78, y: 42 },
+          { x: 79, y: 53 },
+          { x: 82, y: 39 },
+          { x: 85, y: 39 },
+          { x: 83, y: 35 },
+          { x: 83, y: 41 },
+          { x: 84, y: 25 },
+          { x: 87, y: 32 },
+          { x: 89, y: 36 },
+          { x: 84, y: 48 },
+          { x: 93, y: 47 },
+          { x: 96, y: 52 },
+        ],
+        backgroundColor: 'rgba(255, 99, 132, 1)',
+      },
+    ],
+  };

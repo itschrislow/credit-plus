@@ -16,6 +16,8 @@ import Analysis from './Application/Analysis';
 import Financials from './Application/Financials';
 import Directorship from './Application/Directorship';
 
+import { GreenBadge } from './Badges';
+
 export const DetailsTabs = {
   Analysis: { name: 'Analysis', tab: 'Analysis' },
   Financials: { name: 'Financials', tab: 'Financials' },
@@ -83,7 +85,13 @@ const ApplicationDetails = ({
                 <div className="h-full flex flex-col bg-white shadow-xl overflow-y-scroll">
                   {/* CLOSE BUTTON */}
                   <div className="px-4 sm:px-6">
-                    <div className="h-16 flex items-center justify-end">
+                    <div className="h-16 flex items-center justify-between">
+                      <p className="inline-flex items-center text-sm">
+                        <p className="mr-2">Application Strength:</p>
+                        <GreenBadge>
+                          86%
+                        </GreenBadge>
+                      </p>
                       <div className="ml-3 h-7 flex items-center">
                         <button
                           className="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none"
@@ -108,7 +116,7 @@ const ApplicationDetails = ({
                           {/* SSM REG */}
                           <p className="mb-2 text-sm text-gray-500">
                             202003315827 (003190749-H)
-                            </p>
+                          </p>
                           {/* LOAN DETAILS */}
                           <div className="-ml-1 flex flex-col sm:flex-row sm:flex-wrap sm:mt-0 sm:space-x-6">
                             <div className="flex items-center text-sm text-gray-500">

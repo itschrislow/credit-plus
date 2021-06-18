@@ -5,7 +5,7 @@ export const APPLICATIONS = [
         href: '#',
         amount: 200000,
         currency: 'MYR',
-        status: 'approved',
+        status: 'processing',
         date: 'July 19, 2021',
         datetime: '2021-07-19',
         product: "BizPower SME Business Loan"
@@ -38,7 +38,7 @@ export const APPLICATIONS = [
         href: '#',
         amount: 50000000,
         currency: 'MYR',
-        status: 'rejected',
+        status: 'processing',
         date: 'April 4, 2020',
         datetime: '2020-04-03',
         product: "BizPower SME Business Loan"
@@ -49,7 +49,7 @@ export const APPLICATIONS = [
         href: '#',
         amount: 15000000,
         currency: 'MYR',
-        status: 'approved',
+        status: 'processing',
         date: 'April 4, 2020',
         datetime: '2020-04-03',
         product: "BizPower SME Property Loan"
@@ -60,7 +60,7 @@ export const APPLICATIONS = [
         href: '#',
         amount: 680000,
         currency: 'MYR',
-        status: 'approved',
+        status: 'processing',
         date: 'April 4, 2020',
         datetime: '2020-04-03',
         product: "BizPlus/-i"
@@ -71,7 +71,7 @@ export const APPLICATIONS = [
         href: '#',
         amount: 1680000,
         currency: 'MYR',
-        status: 'approved',
+        status: 'processing',
         date: 'May 4, 2021',
         datetime: '2020-05-04',
         product: "BizPower SME Business Loan"
@@ -82,7 +82,7 @@ export const APPLICATIONS = [
         href: '#',
         amount: 80000,
         currency: 'MYR',
-        status: 'rejected',
+        status: 'processing',
         date: 'March 19, 2021',
         datetime: '2020-09-19',
         product: "BizPower SME Relief Financing"
@@ -93,7 +93,7 @@ export const APPLICATIONS = [
         href: '#',
         amount: 980000,
         currency: 'MYR',
-        status: 'approved',
+        status: 'processing',
         date: 'May 10, 2021',
         datetime: '2020-05-10',
         product: "BizPower SME Property Loan"
@@ -104,7 +104,7 @@ export const APPLICATIONS = [
         href: '#',
         amount: 780000,
         currency: 'MYR',
-        status: 'approved',
+        status: 'processing',
         date: 'May 5, 2021',
         datetime: '2020-05-05',
         product: "BizPower SME Business Loan"

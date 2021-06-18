@@ -1,26 +1,30 @@
 import Link from 'next/link';
 import { useState } from 'react';
-import { CashIcon } from '@heroicons/react/solid'
 
 import { APPLICATIONS } from 'src/data/applications';
 
 import { DetailsTabs } from 'src/components/ApplicationDetails';
 import ApplicationDetails from 'src/components/ApplicationDetails';
 
-const statusStyles = {
+export const statusStyles = {
   approved: 'bg-green-100 text-green-800',
   processing: 'bg-yellow-100 text-yellow-800',
   rejected: 'bg-red-100 text-red-800',
 }
 
 const Applications = () => {
+  const [index, setIndex] = useState(0);
   const [showDetails, setShowDetails] = useState(false);
+  const [applications, setApplications] = useState(APPLICATIONS);
 
   return (
     <div className="h-screen">
       <ApplicationDetails
+        index={index}
         showDetails={showDetails}
         setShowDetails={setShowDetails}
+        applications={applications}
+        setApplications={setApplications}
       />
       <h2 className="max-w-6xl mx-auto mt-8 px-4 text-lg leading-6 font-medium text-gray-900 sm:px-6 lg:px-8">
         Recent activity
@@ -50,12 +54,16 @@ const Applications = () => {
                 </tr>
               </thead>
               <Link href={{ query: { tab: DetailsTabs.Analysis.tab } }}>
-                <tbody
-                  className="bg-white divide-y divide-gray-200"
-                  onClick={() => setShowDetails(true)}
-                >
-                  {APPLICATIONS.map((application) => (
-                    <tr key={application.id} className="bg-white">
+                <tbody className="bg-white divide-y divide-gray-200 cursor-pointer">
+                  {applications.map((application, index) => (
+                    <tr
+                      key={application.id}
+                      className="bg-white"
+                      onClick={() => {
+                        setIndex(index)
+                        setShowDetails(true)
+                      }}
+                    >
                       <td className="max-w-0 px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                         <p className="text-gray-500 truncate group-hover:text-gray-900">
                           {application.name}

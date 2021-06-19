@@ -16,8 +16,8 @@ import Sector from 'src/components/Charts/Sector'
 import Turnover from 'src/components/Charts/Turnover'
 
 const Cards = {
-  Sector: { name: 'Sector', icon: ChartPieIcon, best: 'Technology', worst: 'Utility' },
   ProductStats: { name: 'Product Statistics', icon: CreditCardIcon, best: 'BizPower SME Business Loan', worst: 'BizPlus/-i' },
+  Sector: { name: 'Sector', icon: ChartPieIcon, best: 'Technology', worst: 'Utility' },
   Turnover: { name: 'Finance Amount vs Turnover', icon: ScaleIcon, best: '4', worst: '2' },
 }
 
@@ -30,7 +30,7 @@ const Products = {
 }
 
 const Dashboard = () => {
-  const [currCard, setCurrCard] = useState(Cards.Sector)
+  const [currCard, setCurrCard] = useState(Cards.ProductStats)
   const [currProduct, setCurrProduct] = useState(Products.All);
 
   return (
@@ -40,7 +40,7 @@ const Dashboard = () => {
           <h2 className="text-lg leading-6 font-medium text-gray-900">
             Overview
           </h2>
-          <Dropdown currProduct={currProduct} setCurrProduct={setCurrProduct} />
+          {/* <Dropdown currProduct={currProduct} setCurrProduct={setCurrProduct} /> */}
         </div>
         <div className="mt-2 mb-5 grid grid-cols-1 sm:grid-cols-3 gap-5">
           {/* Card */}
@@ -86,66 +86,14 @@ const Dashboard = () => {
             )
           })}
         </div>
-        {currCard === Cards.Sector && <Sector />}
         {currCard === Cards.ProductStats && <ProductStats />}
+        {currCard === Cards.Sector && <Sector />}
         {currCard === Cards.Turnover && <Turnover />}
       </div>
     </div>
   )
 }
 
-const Dropdown = ({ currProduct, setCurrProduct }) => {
-  return (
-    <Menu as="div" className="relative inline-block text-left">
-      {({ open }) => (
-        <>
-          <div>
-            <Menu.Button className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-0">
-              {currProduct}
-              <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
-            </Menu.Button>
-          </div>
-
-          <Transition
-            show={open}
-            as={Fragment}
-            enter="transition ease-out duration-100"
-            enterFrom="transform opacity-0 scale-95"
-            enterTo="transform opacity-100 scale-100"
-            leave="transition ease-in duration-75"
-            leaveFrom="transform opacity-100 scale-100"
-            leaveTo="transform opacity-0 scale-95"
-          >
-            <Menu.Items
-              static
-              className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
-            >
-              <div className="py-1">
-                {Object.keys(Products).map(key => (
-                  <Menu.Item
-                    key={key}
-                    onClick={() => setCurrProduct(Products[key])}
-                  >
-                    {({ active }) => (
-                      <p
-                        className={`
-                        block px-4 py-2 text-sm 
-                        ${active ? 'bg-gray-100 text-gray-900' : 'text-gray-700'}
-                      `}
-                      >
-                        {Products[key]}
-                      </p>
-                    )}
-                  </Menu.Item>
-                ))}
-              </div>
-            </Menu.Items>
-          </Transition>
-        </>
-      )}
-    </Menu>
-  )
-}
 
 
 export default Dashboard;

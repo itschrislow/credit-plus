@@ -6,13 +6,13 @@ const options = {
     y: {
       title: {
         display: true,
-        text: 'units'
+        text: 'UNITS (THOUSNADS)'
       }
     },
     x: {
       title: {
         display: true,
-        text: 'products'
+        text: 'PRODUCTS'
       }
     },
   },
@@ -20,7 +20,7 @@ const options = {
 
 const ProductStats = () => {
   return (
-    <div className="bg-white rounded-lg">
+    <div className="bg-white rounded-lg p-5">
       <div className="title">Product Statistics</div>
       <Bar data={PRODUCT_STATS} options={options}></Bar>
     </div>

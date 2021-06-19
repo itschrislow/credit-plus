@@ -7,13 +7,13 @@ const options = {
     y: {
       title: {
         display: true,
-        text: 'Turnover (thousands)'
+        text: 'TURNOVER (THOUSANDS)'
       }
     },
     x: {
       title: {
         display: true,
-        text: 'Finance Amount (thousands)'
+        text: 'FINANACE AMOUNT (THOUSANDS)'
       }
     }
 }

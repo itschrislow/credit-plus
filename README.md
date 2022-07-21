@@ -6,6 +6,8 @@
 
 This solution is developed for [RHB Get Your Hack On](https://www.jomhack.com/rhbhackathon/) to assess SME financing applications to improve RHB's credit decisions and reduce cases of default.
 
+🏆 Top 10 Finalist
+
 ## Problems
   
 **Problem 1** - With a wide range of financing options available, SMEs find it hard to determine the best option for they are eligible for. 

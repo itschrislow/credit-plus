@@ -1,34 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div style="display: flex" align="center">
+  <img src="https://user-images.githubusercontent.com/21194612/180143024-0552f5e0-a567-4a62-8e7f-af95277c1c77.png" alt="Credit Plus Logo" width="150px" />
+</div>
 
-## Getting Started
+<br />
 
-First, run the development server:
+This solution is developed for [RHB Get Your Hack On](https://www.jomhack.com/rhbhackathon/) to assess SME financing applications to improve RHB's credit decisions and reduce cases of default.
 
-```bash
-npm run dev
-# or
-yarn dev
+## Problems
+  
+**Problem 1** - With a wide range of financing options available, SMEs find it hard to determine the best option for they are eligible for. 
+
+**Problem 2** - On the other hand, bankers are unable to keep up with the number of applications as due diligence is done manually.
+
+## Solutions
+
+**Solution 1**
+
+The Credit+ smart assistant narrows down eligible financing options for SMEs by asking initial screening questions then providing an estimated approval rate based on the information provided.
+
+![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/21194612/180148996-653268d7-1612-41ec-83fc-838be478702b.gif)
+
+[View smart assistant](https://credit-plus.vercel.app/)
+
+**Solution 2**
+
+The Credi+ dashboard provides key information about the company, their application and how they compare against other applicants at a glance while acting as a source of truth for all financing applications.
+
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/21194612/180145563-342b91df-32ce-4073-b4bd-3a118eb6b955.gif)
+
+[View dashboard](https://credit-plus.vercel.app/dashboard)
+
+## Installation
+
+Clone the project
+
+```
+git clone https://github.com/itschrislow/credit-plus.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Install dependencies and run in development mode
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+yarn
+yarn dev
+```
